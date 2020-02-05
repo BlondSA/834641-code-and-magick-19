@@ -6,11 +6,14 @@ var CLOUD_X = 100;
 var CLOUD_Y = 10;
 var SHIFT = 10;
 var GAP = 50;
-var MARGIN = 40;
+var MARGIN = 40; // Отступ для первого столбца гистограммы слева
 var barHeight = 150;
 var BAR_WIDTH = 40;
 var BAR_TOP = 90;
 var TEXT_LINE = 250;
+var FONT_GAP = 20;
+var TITLE_X = 120;
+var TITLE_Y = 30;
 
 var renderCloud = function (ctx, x, y, color) {
   ctx.fillStyle = color;
@@ -36,9 +39,9 @@ window.renderStatistics = function (ctx, players, times) {
   ctx.font = '16px PT Mono';
   ctx.textBaseline = 'hanging';
   ctx.fillStyle = '#000000';
-  ctx.fillText('Ура вы победили!', 120, 30);
+  ctx.fillText('Ура вы победили!', TITLE_X, TITLE_Y);
   ctx.fillStyle = '#000000';
-  ctx.fillText('Список результатов: ', 120, 50);
+  ctx.fillText('Список результатов: ', TITLE_X, TITLE_Y + FONT_GAP);
 
   var maxTime = getMaxElement(times);
 
@@ -47,8 +50,7 @@ window.renderStatistics = function (ctx, players, times) {
     ctx.fillText(
         Math.floor(times[i]),
         CLOUD_X + MARGIN + (BAR_WIDTH + GAP) * i,
-        70 + (barHeight - (barHeight * times[i]) / maxTime)
-    );
+        (TITLE_Y + (FONT_GAP * 2)) + (barHeight - (barHeight * times[i]) / maxTime));
     ctx.fillStyle = 'rgba(255, 0, 0, 1)';
     if (players[i] !== 'Вы') {
       var saturation = Math.floor(101 * Math.random());
