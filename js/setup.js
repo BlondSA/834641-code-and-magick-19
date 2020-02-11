@@ -33,14 +33,14 @@ var COAT_COLORS = [
   'rgb(0, 0, 0)'
 ];
 var EYES_COLORS = ['black', 'red', 'blue', 'yellow', 'green'];
-var WIZARD_NUMBER = 4; // Кол-во персонажей
+var WIZARD_NUMBER = 4; // Кол-во персонажей.
 var similarListElement = document.querySelector('.setup-similar-list');
 var similarWisardTemplate = document
   .querySelector('#similar-wizard-template')
   .content.querySelector('.setup-similar-item');
 var wisardsList = [];
 
-// Функция выбора произвольного элемента из массива
+// Функция выбора произвольного элемента из массива.
 var randomArrayItem = function (arr) {
   return arr[Math.round(Math.random() * (arr.length - 1))];
 };
@@ -54,7 +54,7 @@ for (var i = 0; i < WIZARD_NUMBER; i++) {
   });
 }
 
-// Цикл добавляющий Имя и Фамилию, цвет мантии, цвет глаз и добавляющий в DOM
+// Цикл добавляющий Имя и Фамилию, цвет мантии, цвет глаз и добавляющий в DOM.
 for (var j = 0; j < WIZARD_NUMBER; j++) {
   var wisardElement = similarWisardTemplate.cloneNode(true);
   wisardElement.querySelector('.setup-similar-label').textContent =
