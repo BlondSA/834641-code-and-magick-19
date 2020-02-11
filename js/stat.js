@@ -12,6 +12,7 @@ var BAR_WIDTH = 40;
 var BAR_TOP = 90;
 var TEXT_LINE = 250;
 var FONT_GAP = 20;
+var FONT_COLOR = '#000000';
 var TITLE_X = 120;
 var TITLE_Y = 30;
 
@@ -38,15 +39,15 @@ window.renderStatistics = function (ctx, players, times) {
   renderCloud(ctx, CLOUD_X, CLOUD_Y, 'white');
   ctx.font = '16px PT Mono';
   ctx.textBaseline = 'hanging';
-  ctx.fillStyle = '#000000';
+  ctx.fillStyle = FONT_COLOR;
   ctx.fillText('Ура вы победили!', TITLE_X, TITLE_Y);
-  ctx.fillStyle = '#000000';
+  ctx.fillStyle = FONT_COLOR;
   ctx.fillText('Список результатов: ', TITLE_X, TITLE_Y + FONT_GAP);
 
   var maxTime = getMaxElement(times);
 
   for (var i = 0; i < players.length; i++) {
-    ctx.fillStyle = '#000000';
+    ctx.fillStyle = FONT_COLOR;
     ctx.fillText(
         Math.floor(times[i]),
         CLOUD_X + MARGIN + (BAR_WIDTH + GAP) * i,
