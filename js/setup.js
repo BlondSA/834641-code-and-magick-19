@@ -105,15 +105,24 @@ setupOpenIconHendler.addEventListener('keydown', function (evt) {
 // Изменение цвета мантии персонажа по нажатию
 var wizardCoatHandler = document.querySelector('.wizard-coat');
 wizardCoatHandler.addEventListener('click', function () {
-  wizardCoatHandler.style.fill = randomArrayItem(COAT_COLORS);
+  var colorCoatRundom = randomArrayItem(COAT_COLORS);
+  wizardCoatHandler.style.fill = colorCoatRundom;
+  var inputCoat = document.querySelector('.setup-wizard-appearance input');
+  inputCoat.value = colorCoatRundom;
 });
 // Изменение цвета глаз персонажа по нажатию
 var wizardEyesHandler = document.querySelector('.wizard-eyes');
 wizardEyesHandler.addEventListener('click', function () {
-  wizardEyesHandler.style.fill = randomArrayItem(EYES_COLORS);
+  var colorEyesRundom = randomArrayItem(EYES_COLORS);
+  wizardEyesHandler.style.fill = colorEyesRundom;
+  var inputEyes = document.querySelector('.setup-wizard-appearance input:last-child');
+  inputEyes.value = colorEyesRundom;
 });
 // Изменение цвета фаерболов по нажатию
 var wizardFireballHandler = document.querySelector('.setup-fireball-wrap');
 wizardFireballHandler.addEventListener('click', function () {
-  wizardFireballHandler.style.backgroundColor = randomArrayItem(FIREBALL_COLOR);
+  var colorFireballRundom = randomArrayItem(FIREBALL_COLOR);
+  wizardFireballHandler.style.backgroundColor = colorFireballRundom;
+  var inputFire = document.querySelector('.setup-fireball-wrap input');
+  inputFire.value = colorFireballRundom;
 });
