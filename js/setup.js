@@ -12,9 +12,9 @@
   // На каждом цикле мы собираем и записываем в массив "wizardsList" произвольно выбранное Имя + Фамилия, цвет мантии, цвет глаз.
   for (var i = 0; i < window.utils.WIZARD_NUMBER; i++) {
     wisardsList.push({
-      name: window.utils.randomArrayItem(window.utils.NAMES) + ' ' + window.utils.randomArrayItem(window.utils.LASTNAMES),
-      coatColor: window.utils.randomArrayItem(window.utils.COAT_COLORS),
-      eyesColor: window.utils.randomArrayItem(window.utils.EYES_COLORS)
+      name: window.utils.getRandomArrayItem(window.utils.NAMES) + ' ' + window.utils.getRandomArrayItem(window.utils.LASTNAMES),
+      coatColor: window.utils.getRandomArrayItem(window.utils.COAT_COLORS),
+      eyesColor: window.utils.getRandomArrayItem(window.utils.EYES_COLORS)
     });
   }
 

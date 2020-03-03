@@ -14,18 +14,19 @@
 
   setupOpen.addEventListener('click', function (evt) {
     evt.preventDefault();
-    setup.classList.remove('hidden');
-    window.color.changeColor();
+    openPopupHandler();
   });
 
   var openPopupHandler = function () {
     setup.classList.remove('hidden');
     document.addEventListener('keydown', onPopupEscPress);
+    window.color.getStartChangeColor();
   };
 
   var closePopupHandler = function () {
     setup.classList.add('hidden');
     document.removeEventListener('keydown', onPopupEscPress);
+    window.color.getStopChangeColor();
   };
 
   setupClose.addEventListener('click', function () {

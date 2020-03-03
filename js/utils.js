@@ -36,11 +36,11 @@
   var WIZARD_NUMBER = 4; // Кол-во персонажей.
 
   // Функция выбора произвольного элемента из массива.
-  var randomArrayItem = function (arr) {
+  var getRandomArrayItem = function (arr) {
     return arr[Math.round(Math.random() * (arr.length - 1))];
   };
   window.utils = {
-    randomArrayItem: randomArrayItem,
+    getRandomArrayItem: getRandomArrayItem,
     COAT_COLORS: COAT_COLORS,
     EYES_COLORS: EYES_COLORS,
     FIREBALL_COLOR: FIREBALL_COLOR,

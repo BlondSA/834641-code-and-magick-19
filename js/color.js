@@ -1,42 +1,65 @@
 'use strict';
 // Функция изменения цвета мантии, глаз, фаербола по клику на соответсвуюие элементы персонажа
 (function () {
-  var changeColor = function () {
-    var wizardCoatHandler = document.querySelector('.wizard-coat');
-    var inputCoat = document.querySelector('.setup-wizard-appearance input');
-    var wizardEyesHandler = document.querySelector('.wizard-eyes');
-    var inputEyes = document.querySelector(
-        '.setup-wizard-appearance input:last-child'
-    );
-    var wizardFireballHandler = document.querySelector('.setup-fireball-wrap');
-    var inputFire = document.querySelector('.setup-fireball-wrap input');
+  var wizardCoatHandler = document.querySelector('.wizard-coat');
+  var inputCoat = document.querySelector('.setup-wizard-appearance input');
+  var wizardEyesHandler = document.querySelector('.wizard-eyes');
+  var inputEyes = document.querySelector(
+      '.setup-wizard-appearance input:last-child'
+  );
+  var wizardFireballHandler = document.querySelector('.setup-fireball-wrap');
+  var inputFire = document.querySelector('.setup-fireball-wrap input');
 
+  // Функция смены цвета мантии
+  var changeColorCoat = function () {
+    var colorCoatRundom = window.utils.getRandomArrayItem(
+        window.utils.COAT_COLORS
+    );
+    wizardCoatHandler.style.fill = colorCoatRundom;
+    inputCoat.value = colorCoatRundom;
+  };
+
+  // Функция смены цвета глаз
+  var changeColorEyes = function () {
+    var colorEyesRundom = window.utils.getRandomArrayItem(
+        window.utils.EYES_COLORS
+    );
+    wizardEyesHandler.style.fill = colorEyesRundom;
+    inputEyes.value = colorEyesRundom;
+  };
+
+  // Функция смены цвета огненного шара
+  var changeColorFireball = function () {
+    var colorFireballRundom = window.utils.getRandomArrayItem(
+        window.utils.FIREBALL_COLOR
+    );
+    wizardFireballHandler.style.backgroundColor = colorFireballRundom;
+    inputFire.value = colorFireballRundom;
+  };
+
+  var getStartChangeColor = function () {
     // Изменение цвета мантии персонажа по нажатию
-    wizardCoatHandler.addEventListener('click', function () {
-      var colorCoatRundom = window.utils.randomArrayItem(
-          window.utils.COAT_COLORS
-      );
-      wizardCoatHandler.style.fill = colorCoatRundom;
-      inputCoat.value = colorCoatRundom;
-    });
+    wizardCoatHandler.addEventListener('click', changeColorCoat);
 
     // Изменение цвета глаз персонажа по нажатию
-    wizardEyesHandler.addEventListener('click', function () {
-      var colorEyesRundom = window.utils.randomArrayItem(
-          window.utils.EYES_COLORS
-      );
-      wizardEyesHandler.style.fill = colorEyesRundom;
-      inputEyes.value = colorEyesRundom;
-    });
+    wizardEyesHandler.addEventListener('click', changeColorEyes);
 
     // Изменение цвета фаерболов по нажатию
-    wizardFireballHandler.addEventListener('click', function () {
-      var colorFireballRundom = window.utils.randomArrayItem(
-          window.utils.FIREBALL_COLOR
-      );
-      wizardFireballHandler.style.backgroundColor = colorFireballRundom;
-      inputFire.value = colorFireballRundom;
-    });
+    wizardFireballHandler.addEventListener('click', changeColorFireball);
   };
-  window.color = {changeColor: changeColor};
+  var getStopChangeColor = function () {
+    // Убираем изменение цвета мантии персонажа по нажатию
+    wizardCoatHandler.removeEventListener('click', changeColorCoat);
+
+    // Убираем изменение цвета глаз персонажа по нажатию
+    wizardEyesHandler.removeEventListener('click', changeColorEyes);
+
+    // Убираем изменение цвета фаерболов по нажатию
+    wizardFireballHandler.removeEventListener('click', changeColorFireball);
+  };
+
+  window.color = {
+    getStartChangeColor: getStartChangeColor,
+    getStopChangeColor: getStopChangeColor
+  };
 })();
