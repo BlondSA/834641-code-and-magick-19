@@ -8,7 +8,7 @@
   var SHIFT = 10;
   var GAP = 50;
   var MARGIN = 40; // Отступ для первого столбца гистограммы слева
-  var barHeight = 150;
+  var BAR_HEIGHT = 150;
   var BAR_WIDTH = 40;
   var BAR_TOP = 90;
   var TEXT_LINE = 250;
@@ -52,7 +52,7 @@
       ctx.fillText(
           Math.floor(times[i]),
           CLOUD_X + MARGIN + (BAR_WIDTH + GAP) * i,
-          (TITLE_Y + (FONT_GAP * 2)) + (barHeight - (barHeight * times[i]) / maxTime));
+          (TITLE_Y + (FONT_GAP * 2)) + (BAR_HEIGHT - (BAR_HEIGHT * times[i]) / maxTime));
       ctx.fillStyle = 'rgba(255, 0, 0, 1)';
       if (players[i] !== 'Вы') {
         var saturation = Math.floor(101 * Math.random());
@@ -60,9 +60,9 @@
       }
       ctx.fillRect(
           CLOUD_X + MARGIN + (BAR_WIDTH + GAP) * i,
-          BAR_TOP + (barHeight - (barHeight * times[i]) / maxTime),
+          BAR_TOP + (BAR_HEIGHT - (BAR_HEIGHT * times[i]) / maxTime),
           BAR_WIDTH,
-          (barHeight * times[i]) / maxTime
+          (BAR_HEIGHT * times[i]) / maxTime
       );
       ctx.fillStyle = '#000000';
       ctx.fillText(
