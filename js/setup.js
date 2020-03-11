@@ -41,7 +41,7 @@
     });
     evt.preventDefault();
   });
-
+  // В случае успешного выполнения
   var successHandler = (function (wizards) {
     var fragment = document.createDocumentFragment();
 
@@ -52,6 +52,8 @@
 
     setup.querySelector('.setup-similar').classList.remove('hidden');
   });
+
+  // В случае ошибки
   var errorHandler = function (errorMessage) {
     var node = document.createElement('div');
     node.style = 'z-index: 100; margin: 0 auto; text-align: center; background-color: red;';
