@@ -20,13 +20,13 @@
   var openPopupHandler = function () {
     setup.classList.remove('hidden');
     document.addEventListener('keydown', onPopupEscPress);
-    window.color.getStartChangeColor();
+    window.color.addChangeColorHandlers();
   };
 
   var closePopupHandler = function () {
     setup.classList.add('hidden');
     document.removeEventListener('keydown', onPopupEscPress);
-    window.color.getStopChangeColor();
+    window.color.removeChangeColorHandlers();
   };
 
   setupClose.addEventListener('click', function () {

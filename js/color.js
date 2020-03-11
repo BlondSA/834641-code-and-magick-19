@@ -37,7 +37,7 @@
     inputFire.value = colorFireballRundom;
   };
 
-  var getStartChangeColor = function () {
+  var addChangeColorHandlers = function () {
     // Изменение цвета мантии персонажа по нажатию
     wizardCoatHandler.addEventListener('click', changeColorCoat);
 
@@ -47,7 +47,7 @@
     // Изменение цвета фаерболов по нажатию
     wizardFireballHandler.addEventListener('click', changeColorFireball);
   };
-  var getStopChangeColor = function () {
+  var removeChangeColorHandlers = function () {
     // Убираем изменение цвета мантии персонажа по нажатию
     wizardCoatHandler.removeEventListener('click', changeColorCoat);
 
@@ -59,7 +59,7 @@
   };
 
   window.color = {
-    getStartChangeColor: getStartChangeColor,
-    getStopChangeColor: getStopChangeColor
+    addChangeColorHandlers: addChangeColorHandlers,
+    removeChangeColorHandlers: removeChangeColorHandlers
   };
 })();
