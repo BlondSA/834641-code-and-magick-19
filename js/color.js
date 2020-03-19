@@ -11,8 +11,6 @@
   var inputFire = document.querySelector('.setup-fireball-wrap input');
 
   var wizard = {
-    onEyesChange: function () {},
-    onCoatChange: function () {}
   };
 
   // Функция смены цвета мантии
