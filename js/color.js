@@ -10,6 +10,11 @@
   var wizardFireballHandler = document.querySelector('.setup-fireball-wrap');
   var inputFire = document.querySelector('.setup-fireball-wrap input');
 
+  var wizard = {
+    onEyesChange: function () {},
+    onCoatChange: function () {}
+  };
+
   // Функция смены цвета мантии
   var changeColorCoat = function () {
     var colorCoatRundom = window.utils.getRandomArrayItem(
@@ -17,6 +22,7 @@
     );
     wizardCoatHandler.style.fill = colorCoatRundom;
     inputCoat.value = colorCoatRundom;
+    wizard.onCoatChange(colorCoatRundom);
   };
 
   // Функция смены цвета глаз
@@ -26,6 +32,7 @@
     );
     wizardEyesHandler.style.fill = colorEyesRundom;
     inputEyes.value = colorEyesRundom;
+    wizard.onEyesChange(colorEyesRundom);
   };
 
   // Функция смены цвета огненного шара
@@ -60,6 +67,7 @@
 
   window.color = {
     addChangeColorHandlers: addChangeColorHandlers,
-    removeChangeColorHandlers: removeChangeColorHandlers
+    removeChangeColorHandlers: removeChangeColorHandlers,
+    wizard: wizard,
   };
 })();
